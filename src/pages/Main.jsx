@@ -45,7 +45,7 @@ const Main = (props) => {
             <div onClick={() => openModal('registration')}>
                 <Button text='Регистрация' />
             </div>
-            <div>
+            <div onClick={() => openModal('Password-recovery')}>
                 <Button text='Восстановление пароля' />
             </div>
             

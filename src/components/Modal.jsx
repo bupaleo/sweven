@@ -1,4 +1,5 @@
 import Authorization from "./auth/Authorization";
+import Password_recovery from "./auth/Password-recovery";
 import Registration from "./auth/Registration";
 import Cross from '../assets/cross.png'
 import module from './Modal.module.scss'
@@ -11,6 +12,8 @@ const Modal = (props) => {
                 return <Authorization />;
             case 'registration':
                 return <Registration />;
+            case 'Password-recovery':
+                return <Password_recovery />;
             default:
                 return <Authorization />;
         }

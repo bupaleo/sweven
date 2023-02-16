@@ -1,7 +1,7 @@
 header, footer {
     padding: 20px;
     text-align: center;
-    background-color: lawngreen;
+    background-color: rgb(236, 240, 232);
 }
 .modal {
     position: fixed;
@@ -59,7 +59,7 @@ header, footer {
 }
 .button-green {
     margin: 5px 0;
-    background-color: #4CAF50; /* Green */
+    background-color: #000000; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -70,7 +70,7 @@ header, footer {
     cursor: pointer;
 }
 .button-green:hover {
-    background-color: #3e8e41;
+    background-color: #000000;
 }
 .form-input {
     margin: 15px 0;

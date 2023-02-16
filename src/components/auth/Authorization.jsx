@@ -1,6 +1,6 @@
   import React from 'react'
 import module from './Authorization.module.scss'
-
+import Registration from './Registration.jsx'
     import Email_icon from '../assets/email_icon.png'
     import key_icon from '../assets/key_icon.png' 
     import tick_icon from '../assets/tick_icon.png' 
@@ -41,7 +41,7 @@ import module from './Authorization.module.scss'
                         <a href='#'  id={module.one}> <img src={facebook} className={module.icon} alt='facebook'></img> </a>
                     </div>
                 </div>
-                <div className={module.signin}><p> Нет аккаунта? <a href='#'>Зарегистрироваться </a> </p> </div>
+                <div className={module.signin}><p> Нет аккаунта? <a href='./Registration.jsx'> Зарегистрироваться </a> </p> </div>
 
                 </form>
                 
