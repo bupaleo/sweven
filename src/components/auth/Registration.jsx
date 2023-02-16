@@ -2,12 +2,13 @@ import {useForm} from "react-hook-form";
 import module from './Registration.module.scss'
 import Cross from '../assets/cross.png'
 import Email_icon from '../assets/email_icon.png'
-import key_icon from '../assets/key_icon.png' 
+import lock_key from '../assets/key_icon.png' 
 import phone from '../assets/phone.png'
 import tick_icon from '../assets/tick_icon.png' 
 import google from '../assets/google.png'
 import apple from '../assets/apple.png'
 import facebook from '../assets/facebook.png'
+// import eyes from '../assets/vectors.png'
 const Registration = (props) => {
 
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -22,8 +23,10 @@ const Registration = (props) => {
         <div className="form-modal">
             <div className={module.title}>Регистрация</div>
             <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
-                <div className={module.input_login}>
+            <div className={module.input_login}>
                     <label htmlFor="firstName">Телефон</label>
+                    <div className={module.image_icon}>
+                    <img src={phone}></img>
                     <input 
                         type="text" 
                         name="firstName" 
@@ -42,9 +45,15 @@ const Registration = (props) => {
                     />
                     {errors.firstName && <span className="error" role="alert">{errors.firstName?.message}</span>}
                 </div>
+                </div>
                 <div className={module.line}> </div>
+
+
+
                 <div className={module.input_login}>
                     <label htmlFor="email">Email: </label>
+                    <div className={module.image_icon}>
+                    <img src={Email_icon}></img>
                     <input 
                         type="text" 
                         name="email" 
@@ -58,12 +67,15 @@ const Registration = (props) => {
                         })}
                     />
                     {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
-                </div>
+                </div></div>
                 <div className={module.line}> </div>
             
+
+
                 <div className={module.input_login}>
                     <label htmlFor="password">Пароль: </label>
-                    <img src={phone}></img>
+                    <div className={module.image_icon}>
+                    <img src={lock_key}></img>
                     <input 
                         type="password" 
                         name="password" 
@@ -77,10 +89,15 @@ const Registration = (props) => {
                           })}
                     />
                     {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
-                </div>
+                    <img src={phone}></img> 
+                    </div></div>
                 <div className={module.line}> </div>
-                <div className="form-input">
+
+
+                <div className={module.input_login}>
                     <label htmlFor="cpassword">Повторите пароль: </label>
+                    <div className={module.image_icon}>
+                    <img src={lock_key}></img>
                     <input 
                         type="password" 
                         name="cpassword" 
@@ -95,11 +112,14 @@ const Registration = (props) => {
                         })}
                     />
                     {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
-                </div>
+                    <img src={phone}></img>
+                    </div></div>
                 <div className={module.line}> </div>
                 <div>
+                <div className={module.forget}> 
+                  <p> <button className={module.tick}> <img className={module.email_icon} src={tick_icon}></img> </button> Запомнить меня</p> </div>
                     <label htmlFor="submit"></label>
-                    <input className={module.login_button} type="submit" name="submit" value="Отправить"/>
+                    <input className={module.login_button} type="submit" name="submit" value="Зарегистрироваться"/>
                 </div>
                 <div className={module.icons_container}> Войти с помощью:
                     <div className={module.icons}>
@@ -108,7 +128,7 @@ const Registration = (props) => {
                         <a href='#'  id={module.one}> <img src={facebook} className={module.icon} alt='facebook'></img> </a>
                     </div>
                 </div>
-                <div className={module.signin}><p> Нет аккаунта? <a href='#'>Зарегистрироваться </a> </p> </div>
+                <div className={module.signin}><p> У вас уже есть аккаунт?  <a href='#'>Войти </a> </p> </div>
 
             </form>
         </div>
