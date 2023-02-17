@@ -8,7 +8,7 @@ import tick_icon from '../assets/tick_icon.png'
 import google from '../assets/google.png'
 import apple from '../assets/apple.png'
 import facebook from '../assets/facebook.png'
-import eyes from '../ass/Vectorlol.png'
+import eyes from '../assets/Vectorlol.png'
 const Registration = (props) => {
 
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
