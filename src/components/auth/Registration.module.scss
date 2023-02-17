@@ -128,4 +128,30 @@ input, button{
         font-family: 'Montserrat';
         font-weight: 400;
     }
+
+    @media (max-width: 768px) {
+        .input_login {
+        display: block;
+        font-weight: 600;
+        margin-left: 15px;
+        margin-right: 6px;
+        color: rgb(98, 107, 191);
+        }
+
+        .line {
+        border-bottom: 1px solid rgb(105, 105, 105);
+        width: 90%;
+        margin-bottom: 17px;
+        margin-left: 22px;
+        }
+
+        .login_button {
+            margin: 0px 54px 0px 48px;
+        }
+
+        .forget {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        }
+    }
     

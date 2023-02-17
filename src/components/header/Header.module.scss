@@ -22,3 +22,8 @@ a{
     margin-right: 20px;
     text-decoration: none;
 }
+
+@media (max-width: 768px) {
+    .header_a {
+    font-size: 7px;}
+}
