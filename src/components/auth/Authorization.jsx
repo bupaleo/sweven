@@ -1,6 +1,6 @@
   import React from 'react'
-import module from './Authorization.module.scss'
-import Registration from './Registration.jsx'
+    import module from './Authorization.module.scss'
+    import Registration from './Registration.jsx'
     import Email_icon from '../assets/email_icon.png'
     import key_icon from '../assets/key_icon.png' 
     import tick_icon from '../assets/tick_icon.png' 

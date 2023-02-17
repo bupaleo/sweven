@@ -1,7 +1,7 @@
 header {
     text-align: center;
     background-color: rgb(236, 240, 232);
-    height: 50px;
+    height: 70px;
     width: 100%;
     position: relative;
 }
@@ -116,4 +116,5 @@ footer{
 
 .blackout {
     height: 100%;
+}
 }
