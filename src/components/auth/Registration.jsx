@@ -8,7 +8,7 @@ import tick_icon from '../assets/tick_icon.png'
 import google from '../assets/google.png'
 import apple from '../assets/apple.png'
 import facebook from '../assets/facebook.png'
-import eyes from '../assets/vectors.png'
+import eyes from '../ass/Vectorlol.png'
 const Registration = (props) => {
 
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -89,9 +89,9 @@ const Registration = (props) => {
                           })}
                     />
                     {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
-                    <img src={phone}></img> 
+                    <img src={eyes}></img> 
                     </div></div>
-                <div className={module.line}> </div>
+                <div className={module.line}></div>
 
 
                 <div className={module.input_login}>
@@ -112,7 +112,7 @@ const Registration = (props) => {
                         })}
                     />
                     {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
-                    <img src={phone}></img>
+                    <img src={eyes}></img>
                     </div></div>
                 <div className={module.line}> </div>
                 <div>
