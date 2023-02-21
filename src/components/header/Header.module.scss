@@ -46,6 +46,39 @@ a {
 @media (max-width: 768px) {
     .header_a {
         font-size: 7px;
+
+    .head_pic {
+        position: absolute;
+        top: 3vh;
+        display: flex;
+        margin-top: 10px;
+        padding: 0;
+        left: 36vh;
+    }
+
+    .head_pic img {
+        height: 14px;
+        margin: 0px;
+    }
+
+}
+.header_a img {
+    margin-top: 5px;
+height: 60px;
+margin-left: 86px;
+margin-right: 60px;
+}
+
+    .container {
+        display: flex;
+        width: 60%;
+        margin-top: 8px;
+        flex-direction: column;
+        position: absolute;
+    }
+
+    .container a {
+        margin: 2px;
     }
 }
 
