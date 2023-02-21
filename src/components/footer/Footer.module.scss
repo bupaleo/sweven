@@ -1,0 +1,69 @@
+.footer{
+    background-image: url('../assets/footer_fon.png');
+    height: 500px;
+}
+#phone_icon{
+    
+list-style-image: url('../assets/phone_icons.png');
+    height:25.67px;
+}
+
+#email_icon{
+    list-style-image: url('../assets/email_icons.png');
+    height:20px;
+
+    }
+
+    #location_icon{
+        list-style-image: url('../assets/location_icons.png');
+        height:25px;
+
+        }
+
+#one{
+    padding-top:181px;
+    font-size: 27px;
+
+}
+
+#two{
+    font-size: 30px;
+    color: white;
+}
+
+#three{
+    font-size: 16px;
+}
+
+.contacts{
+    height:600px;
+    background-color: rgba(89, 97, 163, 1);
+    display: flex;
+    padding-top:25px;
+    justify-content: space-around;
+    color:white;
+      padding-top:39px;
+}
+
+ul{
+    text-align: start;
+  list-style-type: none;
+}
+
+
+li{
+    padding-bottom: 33px;
+    padding-left: 6px;
+    text-align: start;}
+
+h4{
+    text-align: start;
+    margin:0;
+    padding:0;
+    margin-bottom: 56px;
+    padding-left:45px;
+}
+
+.h4{
+    padding:7px;
+}

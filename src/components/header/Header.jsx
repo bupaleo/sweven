@@ -13,7 +13,7 @@ const Header = (Props) => {
                 <div className={module.container}>
                     <a href='#'>ГЛАВНЫЙ</a>
                     <a href='#'>КАТАЛОГ</a>
-                    <a href='#'>СВЯ ЗАТЬСЯ С НАМИ</a>
+                    <a href='#'>СВЯЗАТЬСЯ С НАМИ</a>
                     <a href='#'>АКЦИИ</a>
                 </div>
                 <div className={module.head_pic}>

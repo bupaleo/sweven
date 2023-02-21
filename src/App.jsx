@@ -7,13 +7,19 @@ import Modal from './components/Modal'
 import Authorization from './components/auth/Authorization'
 import Password_recovery from './components/auth/Password-recovery'
 import Registration from './components/auth/Registration'
+import Search from './components/header/Search'
+import Catalogue from './components/header/Catalogue'
 function App() {
   return (
     <div className="App">
       <Header />
+      {/* <Catalogue/> */}
+      {/* <Search/> */}
       <RouterProvider
         router={router}
+        
       />
+      
       <Footer />
     </div>
   )
