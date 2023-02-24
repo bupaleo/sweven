@@ -3,20 +3,19 @@
     height: 500px;
 }
 #phone_icon{
-    
 list-style-image: url('../assets/phone_icons.png');
-    height:25.67px;
+    height:20.67px;
 }
 
 #email_icon{
     list-style-image: url('../assets/email_icons.png');
-    height:20px;
+    height:15px;
 
     }
 
     #location_icon{
         list-style-image: url('../assets/location_icons.png');
-        height:25px;
+        height:20px;
 
         }
 
@@ -36,13 +35,18 @@ list-style-image: url('../assets/phone_icons.png');
 }
 
 .contacts{
-    height:600px;
+    padding-bottom:30px;
     background-color: rgba(89, 97, 163, 1);
     display: flex;
     padding-top:25px;
     justify-content: space-around;
     color:white;
-      padding-top:39px;
+    padding-top:39px;
+    li{
+        margin:10px;
+    // padding-left: 6px;
+    text-align: start;
+}
 }
 
 ul{
@@ -51,19 +55,29 @@ ul{
 }
 
 
-li{
-    padding-bottom: 33px;
-    padding-left: 6px;
-    text-align: start;}
+
 
 h4{
     text-align: start;
     margin:0;
     padding:0;
-    margin-bottom: 56px;
+    // margin-bottom: 40px;
     padding-left:45px;
 }
 
-.h4{
-    padding:7px;
-}
+
+.line{
+    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+    width: 648px;
+    // height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .container{
+        background-color: rgba(89, 97, 163, 1);
+        // margin-bottom: 30px;
+
+    }
