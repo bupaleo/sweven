@@ -81,3 +81,12 @@ h4{
         // margin-bottom: 30px;
 
     }
+
+    @media (max-width: 768px) {
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+     }
