@@ -11,7 +11,8 @@ body{
 }
 footer{
     text-align: center;
-    background-color: rgb(236, 240, 232);
+    background-color: rgba(89, 97, 163, 1);
+
     /* height: 50px; */
     width: 100%;
 }

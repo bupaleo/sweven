@@ -3,19 +3,18 @@
     height: 500px;
 }
 #phone_icon{
-list-style-image: url('../assets/phone_icons.png');
-    height:20.67px;
+    height:18px;
 }
 
 #email_icon{
-    list-style-image: url('../assets/email_icons.png');
-    height:15px;
+
+    height:14px;
 
     }
 
     #location_icon{
-        list-style-image: url('../assets/location_icons.png');
-        height:20px;
+
+        height:15px;
 
         }
 
@@ -36,14 +35,34 @@ list-style-image: url('../assets/phone_icons.png');
 
 .contacts{
     padding-bottom:30px;
-    background-color: rgba(89, 97, 163, 1);
+
     display: flex;
-    padding-top:25px;
+    padding-top:15px;
     justify-content: space-around;
     color:white;
-    padding-top:39px;
+
+    .company{
+        cursor: pointer;
+    }
+
+    .customers{
+        cursor: pointer;
+    }
+
+    .optomv{
+        cursor: pointer;
+    }
+
+    .our_conts{
+        cursor: pointer;
+
+        .phone_num{
+            cursor: text;
+        }
+    }
+    
     li{
-        margin:10px;
+        margin:0px 5px 15px 0px;
     // padding-left: 6px;
     text-align: start;
 }
@@ -52,6 +71,7 @@ list-style-image: url('../assets/phone_icons.png');
 ul{
     text-align: start;
   list-style-type: none;
+  
 }
 
 
@@ -61,32 +81,27 @@ h4{
     text-align: start;
     margin:0;
     padding:0;
+    margin-bottom: 20px;
     // margin-bottom: 40px;
-    padding-left:45px;
+    // padding-left:45px;
 }
 
 
 .line{
-    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-    width: 648px;
-    // height: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-top: 2px solid rgba(0, 0, 0, 0.3);
+    width: 1100px;
+    padding-bottom:40px;
+    margin:0 auto 0;
+    
     }
 
     .container{
         background-color: rgba(89, 97, 163, 1);
-        // margin-bottom: 30px;
 
     }
 
-    @media (max-width: 768px) {
-        .contacts {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-content: center;
-        }
-     }
+#icon{
+    height: 30px;
+    width: 30px;
+    margin-left:10px;
+}

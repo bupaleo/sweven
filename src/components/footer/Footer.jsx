@@ -4,7 +4,8 @@ import phone_icon from '../assets/phone_icons.png'
 import email_icon from '../assets/email_icons.png'
 import location_icon from '../assets/location_icons.png'
 import inst from '../assets/inst.png'
-
+import tg from '../assets/tg.png'
+import ut from '../assets/ut.png'
 function Footer(props) {
     return (
         <footer>
@@ -12,17 +13,19 @@ function Footer(props) {
             <p id={module.two}> ПРИСОЕДИНЯЙТЕСЬ К НАМ И БУДЬТЕ  В КУРСЕ О СКИДОЧНЫХ ТОВАРОВ  </p>
             <p id={module.three}> ПОДПИШИСЬ, ЧТОБЫ НЕПРОПУСТИТЬ ТАКОЙ ШАНС  </p>
             </div> */}
-            <div className={module.container} >
-                <div className={module.contacts}> 
-                    <div> <h4>Компания </h4>
-                        <ul>
+            <div className={module.container}>
+                <div className={module.contacts}>
+                    <div className={module.company}>
+                    
+                        <ul><h4>Компания</h4>
                             <li>Новости</li>
                             <li>Оферта</li>
                             <li>Поставщикам</li>
                         </ul>
                     </div>
-                    <div> <h4>Покупателям </h4>
-                            <ul>
+                    <div className={module.customers}>
+                    
+                             <ul><h4>Покупателям </h4>
                                 <li>Как оформить заказ</li>
                                 <li>Способы оплаты</li>
                                 <li>Условия доставки</li>
@@ -32,27 +35,22 @@ function Footer(props) {
                             </ul>
                     </div>
 
-                    <div> <h4>Оптовикам </h4>
-                        <ul>
-                            <li>Общая информация</li>
-                            <li>Обзоры</li>
-                            <li>Контакт-центр</li>
-                        </ul>
-                    </div>
 
-                    <div> <h4 className={module.h4}>Наши контакты </h4> 
-                        <ul id={module.ul}>
-                            <li id={module.phone_icon}> +996 -XXX-XXX</li> 
-                            <li id={module.email_icon}> Служба поддержки</li>
-                            <li id={module.location_icon}> ул. Иманова 71/5</li>
+
+                    <div className={module.our_conts}>
+                     
+                        <ul> <h4> Наши контакты </h4>
+                            <li className={module.phone_num}>  <p> <img  id={module.phone_icon}src={phone_icon}></img> +996 -XXX-XXX </p></li> 
+                            <li className={module.phone_num}> <p> <img id={module.email_icon} src={email_icon}></img>  Служба поддержки </p> </li>
+                            <li className={module.phone_num}> <p> <img id={module.location_icon} src={location_icon}></img> ул. Иманова 71/5 </p> </li>
                             <li> пр. Гоголя 4/1</li>
                         </ul>
-                    </div>             
-                </div> 
+                        <div> <img id={module.icon} src={inst}></img> <img id={module.icon} src={tg}></img> <img id={module.icon} src={ut}></img> <img id={module.icon} src={inst}></img> </div>
+                    </div>         
+                </div> <div className={module.line}> </div>    
 
              </div>               
-              {/* <div className={module.line}> </div>
-                <div> <img src={inst}></img> </div> */}
+              
         </footer>
     );
 }
