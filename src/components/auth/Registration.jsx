@@ -1,36 +1,28 @@
 import {useForm} from "react-hook-form";
-import module from './Registration.module.scss'
-import Cross from '../assets/cross.png'
-import Email_icon from '../assets/email_icon.png'
-import lock_key from '../assets/key_icon.png' 
-import phone from '../assets/phone.png'
-import tick_icon from '../assets/tick_icon.png' 
-import google from '../assets/google.png'
-import apple from '../assets/apple.png'
-import facebook from '../assets/facebook.png'
-import eyes from '../assets/Vectorlol.png'
+import { createUserWithEmailAndPassword, sendEmailVerification  } from 'firebase/auth';
+import { auth } from '../../app/firebase'
+
 const Registration = (props) => {
-
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
-
     const onSubmit = async data => {
-        console.log(data)
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password)
+            sendEmailVerification(userCredential.user)
+        } catch (error) {
+            console.log(error)
+        }
     }
-
-    console.log(errors)
 
     return (
         <div className="form-modal">
-            <div className={module.title}>Регистрация</div>
+            <div className="title-modal">Регистрация</div>
             <form className="modal-form" onSubmit={handleSubmit(onSubmit)}>
-            <div className={module.input_login}>
-                    <label htmlFor="firstName">Телефон</label>
-                    <div className={module.image_icon}>
-                    <img src={phone}></img>
+                <div className="form-input">
+                    <label htmlFor="firstName">Имя:</label>
                     <input 
                         type="text" 
                         name="firstName" 
-                        placeholder="(ХХХ) ХХ ХХ ХХ" 
+                        placeholder="Введите ваше имя" 
                         {...register('firstName', {
                             required: "Параметр обязателен", 
                             maxLength: {
@@ -45,15 +37,8 @@ const Registration = (props) => {
                     />
                     {errors.firstName && <span className="error" role="alert">{errors.firstName?.message}</span>}
                 </div>
-                </div>
-                <div className={module.line}> </div>
-
-
-
-                <div className={module.input_login}>
+                <div className="form-input">
                     <label htmlFor="email">Email: </label>
-                    <div className={module.image_icon}>
-                    <img src={Email_icon}></img>
                     <input 
                         type="text" 
                         name="email" 
@@ -67,15 +52,27 @@ const Registration = (props) => {
                         })}
                     />
                     {errors.email && <span className="error" role="alert">{errors.email?.message}</span>}
-                </div></div>
-                <div className={module.line}> </div>
-            
-
-
-                <div className={module.input_login}>
+                </div>
+                <div className="form-input">
+                    <label htmlFor="login">Login: </label>
+                    <input 
+                        type="text" 
+                        name="login" 
+                        placeholder="Введите логин"
+                        {...register("login", {
+                            required: "Параметр обязателен",
+                            pattern: {
+                              value: /[A-Za-z]/,
+                              message: "Логин должен содержать только латинские символы"
+                            },
+                            maxLength: 20, 
+                            minLength: 3
+                        })}
+                    />
+                    {errors.login && <span className="error" role="alert">{errors.login?.message}</span>}
+                </div>
+                <div className="form-input">
                     <label htmlFor="password">Пароль: </label>
-                    <div className={module.image_icon}>
-                    <img src={lock_key}></img>
                     <input 
                         type="password" 
                         name="password" 
@@ -89,15 +86,9 @@ const Registration = (props) => {
                           })}
                     />
                     {errors.password && <span className="error" role="alert">{errors.password?.message}</span>}
-                    <img src={eyes}></img> 
-                    </div></div>
-                <div className={module.line}></div>
-
-
-                <div className={module.input_login}>
+                </div>
+                <div className="form-input">
                     <label htmlFor="cpassword">Повторите пароль: </label>
-                    <div className={module.image_icon}>
-                    <img src={lock_key}></img>
                     <input 
                         type="password" 
                         name="cpassword" 
@@ -112,24 +103,11 @@ const Registration = (props) => {
                         })}
                     />
                     {errors.cpassword && <span className="error" role="alert">{errors.cpassword?.message}</span>}
-                    <img src={eyes}></img>
-                    </div></div>
-                <div className={module.line}> </div>
+                </div>
                 <div>
-                <div className={module.forget}> 
-                  <p> <button className={module.tick}> <img className={module.email_icon} src={tick_icon}></img> </button> Запомнить меня</p> </div>
                     <label htmlFor="submit"></label>
-                    <input className={module.login_button} type="submit" name="submit" value="Зарегистрироваться"/>
+                    <input type="submit" name="submit" value="Отправить"/>
                 </div>
-                <div className={module.icons_container}> Войти с помощью:
-                    <div className={module.icons}>
-                        <a href='#'> <img src={google} className={module.icon} alt='gmail'></img> </a>
-                        <a href='#'  id={module.one}> <img src={apple} className={module.icon} id={module.a} alt='apple'></img> </a>
-                        <a href='#'  id={module.one}> <img src={facebook} className={module.icon} alt='facebook'></img> </a>
-                    </div>
-                </div>
-                <div className={module.signin}><p> У вас уже есть аккаунт?  <a href='#'>Войти </a> </p> </div>
-
             </form>
         </div>
     )

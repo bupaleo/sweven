@@ -1,53 +1,102 @@
-  import React from 'react'
-    import module from './Authorization.module.scss'
-    import Registration from './Registration.jsx'
-    import Email_icon from '../assets/email_icon.png'
-    import key_icon from '../assets/key_icon.png' 
-    import tick_icon from '../assets/tick_icon.png' 
-    import google from '../assets/google.png'
-    import apple from '../assets/apple.png'
-    import facebook from '../assets/facebook.png'
+import google_image from '../../assets/google.png'
+import facebook_image from '../../assets/facebook.png'
+import {auth, provider, providerFacebook} from '../../app/firebase'
+import {signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
+import {useState} from 'react'
 
-    const Authorization = (props) => {
+const Authorization = (props) => {
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
+    const [error, setError] = useState(false)
 
-        return (
-            <div>
-        <div className={module.title}>Вход</div>
-                <form>
-                    <div className={module.input_login}>
-                        <label htmlFor="login"></label>
-                        <p>E-mail</p> 
-                        <div> <img src={Email_icon}/> <input type="text" name="login" placeholder="введите логин или почту"/> </div>
-                        <div className={module.line}> </div>
-                    </div>
-                    <div className={module.input_login}>
-                        <label htmlFor="password"></label>
-                        <p>Пароль</p>
-                        <div> <img src={key_icon}/> <input type="password" name="password" placeholder="введите пароль"/> </div>
-                        <div className={module.line}> </div>
-                    </div>
-                    <div className={module.forget}> 
-                  <p> <button className={module.tick}> <img className={module.email_icon} src={tick_icon}></img> </button> Запомнить меня</p>
-                  <p> <a href='#'>Забыли пароль?</a></p>
-                </div>
-                    <div>
-                        <label htmlFor="login"></label>
-                        <input className={module.login_button} type="submit" value="Войти"/>
-                    </div>
-                    <div className={module.icons_container}> Войти с помощью:
-                    <div className={module.icons}>
-                        <a href='#'> <img src={google} className={module.icon} alt='gmail'></img> </a>
-                        <a href='#'  id={module.one}> <img src={apple} className={module.icon} id={module.a} alt='apple'></img> </a>
-                        <a href='#'  id={module.one}> <img src={facebook} className={module.icon} alt='facebook'></img> </a>
-                    </div>
-                </div>
-                <div className={module.signin}><p> Нет аккаунта? <a href='./Registration.jsx'> Зарегистрироваться </a> </p> </div>
+    async function signInWithGoogle() {
+        try {
+            await signInWithPopup(auth, provider)
+            props.closeModal({ type: "modal", active:"false"})
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-                </form>
-                
+    async function signInWithFacebook() {
+        try {
+            await signInWithPopup(auth, providerFacebook)
+            props.closeModal({ type: "modal", active:"false"})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function signIn(e) {
+        e.preventDefault()
+        try {
+            setError(false)
+            await signInWithEmailAndPassword(auth, login, password)
+        } catch(error) {
+            setError(true)
+        }
+    }
+
+    function inputLogin(e) {
+        setLogin(e.target.value)
+    }
+
+    function inputPassword(e) {
+        setPassword(e.target.value)
+    }
+
+    return (
+        <div className="form-modal">
+            <div className="title-modal">Авторизация</div>
+            <div className='error' style={{
+                display: (error) ? 'block' : 'none',
+                color: 'red'
+            }}> 
+                Такого пользователя не существует, проверьте введеный логин и пароль 
             </div>
-        )
-    
-    };
-    
-    export default Authorization
+            <form onSubmit={signIn}>
+                <div>
+                    <label htmlFor="login"></label>
+                    <input type="text" name="login" placeholder="введите логин или почту" onChange={inputLogin}/>
+                </div>
+                <div>
+                    <label htmlFor="password"></label>
+                    <input type="password" name="password" placeholder="введите пароль" onChange={inputPassword}/>
+                </div>
+                <div>
+                    <label htmlFor="login"></label>
+                    <input type="submit" value="Отправить"/>
+                </div>
+                <div>
+                    <img style={{
+                            maxWidth: '100%', 
+                            width: '32px',
+                            marginTop: '16px',
+                            display: 'block',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
+                            cursor: 'pointer'
+                        }}
+                        src={google_image} 
+                        alt="" 
+                        onClick={signInWithGoogle} />
+                        <img style={{
+                                maxWidth: '100%', 
+                                width: '32px',
+                                marginTop: '16px',
+                                display: 'block',
+                                marginLeft: 'auto',
+                                marginRight: 'auto',
+                                cursor: 'pointer'
+                            }}
+                        src={facebook_image} 
+                        alt="" 
+                        onClick={signInWithFacebook} />
+                </div>
+            </form>
+        </div>
+    )
+
+};
+
+export default Authorization

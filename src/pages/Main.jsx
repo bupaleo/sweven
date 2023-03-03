@@ -1,12 +1,16 @@
 import Button from "../components/ui/Button";
-import {useReducer} from 'react'
+import { useReducer } from 'react'
 import Modal from "../components/Modal";
+import { useAuthState } from "react-firebase-hooks/auth"
+import { auth } from '../app/firebase'
 
 const Main = (props) => {
     const [modal, dispatch] = useReducer(reducer, {
         active: false,
         content: 'registration'
-      });
+    });
+
+    const [user, loading, error] = useAuthState(auth);
 
     function reducer(state, action) {
         switch (action.type) {
@@ -31,27 +35,55 @@ const Main = (props) => {
     }
 
     async function openModal(content) {
-        await dispatch({type: 'modal', modal: true})
-        await dispatch({type: 'content', content: content})
-        
+        await dispatch({ type: 'content', content: content })
+        await dispatch({ type: 'modal', modal: true })
     }
 
-    return (
-        <div className="container center-flex">
-            Главная страница
-            <div onClick={() => openModal('authorization')}>
-                <Button text='Авторизация' />
+    const signOut = () => {
+        auth.signOut();
+    };
+
+    if (user) {
+        if (user.emailVerified)
+            return (
+                <div className="container center-flex">
+                    Главная страница
+                    <div>Поздравляю, вы вошли в свой аккаунт {user.displayName}</div>
+                    <div>Ваша почта: {user.email}</div>
+                    <img src={user.photoURL} alt="" />
+                    <div onClick={signOut}>
+                        <Button text='Выйти с аккаунта' />
+                    </div>
+                </div>
+            )
+        else
+            return (
+                <div className="container center-flex">
+                    Главная страница
+                    <div>Вам нужно подтвердить почту</div>
+                    <div onClick={signOut}>
+                        <Button text='Выйти с аккаунта' />
+                    </div>
+                </div>
+            )
+    } else {
+        return (
+            <div className="container center-flex">
+                Главная страница
+                <div onClick={() => openModal('authorization')}>
+                    <Button text='Авторизация' />
+                </div>
+                <div onClick={() => openModal('registration')}>
+                    <Button text='Регистрация' />
+                </div>
+                <div>
+                    <Button text='Восстановление пароля' />
+                </div>
+
+                <Modal modal={modalState} />
             </div>
-            <div onClick={() => openModal('registration')}>
-                <Button text='Регистрация' />
-            </div>
-            <div onClick={() => openModal('Password-recovery')}>
-                <Button text='Восстановление пароля' />
-            </div>
-            
-            <Modal modal={modalState}/>
-        </div>
-    );
+        );
+    }
 };
 
 export default Main;
