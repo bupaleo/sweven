@@ -16,6 +16,9 @@ const Header = (Props) => {
                     <a href='#'>СВЯЗАТЬСЯ С НАМИ</a>
                     <a href='#'>АКЦИИ</a>
                 </div>
+                <div className={module.burger}>
+                <i class="fa-solid fa-bars"></i>
+                </div>
                 <div className={module.head_pic}>
                     <a href='#'><img src={vector}></img></a>
                     <a href='#'><img src={cart}></img></a>
