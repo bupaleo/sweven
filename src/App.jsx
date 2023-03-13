@@ -1,8 +1,6 @@
 import './App.css'
 import router from './app/index.jsx'
 import { RouterProvider, Routes, Route, Link } from 'react-router-dom'
-import Header from './components/header/Header'
-import Footer from './components/footer/Footer'
 import ReactDOM from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -15,16 +13,11 @@ import Catalogue from './components/header/Catalogue'
 function App() {
   return (
     <div className="App">
-      <Header />
       {/* <Catalogue/> */}
       {/* <Search/> */}
-
-
       <RouterProvider
         router={router}
       />
-
-      <Footer />
     </div>
   )
 }
